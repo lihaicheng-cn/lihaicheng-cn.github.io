@@ -7,20 +7,20 @@ export default defineUserConfig({
   lang: 'zh-CN',
   locales: {
     '/': {
-      title: 'My Vuepress Site',
+      title: '白羊',
       lang: 'zh-CN',
-      description: 'Site Description',
+      description: '永远年轻，永远热泪盈眶！',
     },
     '/en/': {
-      title: 'My Vuepress Site',
+      title: 'Ares',
       lang: 'en-US',
-      description: 'Site Description',
+      description: 'Forever young, forever moved to tears.',
     },
   },
 
   head: [
     // 配置站点图标
-    ['link', { rel: 'icon', type: 'image/png', href: 'https://theme-plume.vuejs.press/favicon-32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }],
   ],
 
   bundler: viteBundler(),
@@ -28,7 +28,7 @@ export default defineUserConfig({
 
   theme: plumeTheme({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    // hostname: 'https://your_site_url',
+    hostname: 'https://www.lihaicheng.com',
 
     /* 文档仓库配置，用于 editLink */
     // docsRepo: '',
@@ -155,9 +155,11 @@ export default defineUserConfig({
      * 评论 comments
      * @see https://theme-plume.vuejs.press/guide/features/comments/
      */
-    // comment: {
-    //   provider: '', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
-    //   comment: true,
+    comment: {
+      provider: 'Waline', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
+      comment: true,
+      serverURL: 'https://waline.lihaicheng.com',
+      requiredMeta: ['nick', 'mail'],
     //   repo: '',
     //   repoId: '',
     //   category: '',
@@ -165,7 +167,7 @@ export default defineUserConfig({
     //   mapping: 'pathname',
     //   reactionsEnabled: true,
     //   inputPosition: 'top',
-    // },
+    },
 
     /**
      * 资源链接替换

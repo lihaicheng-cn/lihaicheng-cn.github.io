@@ -7,16 +7,16 @@ config:
     full: true
     background: tint-plate
     hero:
-      name: Theme Plume
-      tagline: VuePress Next Theme
-      text: A simple, feature-rich, document & blog
+      name: My Blog
+      tagline: Forever young, forever moved to tears.
+      text: May you be forever happy!
       actions:
         -
           theme: brand
-          text: Blog
+          text: Quick Start
           link: /en/blog/
         -
           theme: alt
-          text: Github →
-          link: https://github.com/pengzhanbo/vuepress-theme-plume
+          text: Github
+          link: https://github.com/lihaicheng-cn
 ---

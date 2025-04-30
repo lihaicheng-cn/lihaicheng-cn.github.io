@@ -7,16 +7,16 @@ config:
     full: true
     background: tint-plate
     hero:
-      name: Theme Plume
-      tagline: VuePress Next Theme
-      text: 一个简约的，功能丰富的 vuepress 文档&博客 主题
+      name: 白羊
+      tagline: 种一棵树最好的时间是十年前，其次是现在！
+      text: 「我希望正在读这句话的人永远开心」
       actions:
         -
           theme: brand
-          text: 博客
+          text: 快速开始 →
           link: /blog/
         -
           theme: alt
-          text: Github →
-          link: https://github.com/pengzhanbo/vuepress-theme-plume
+          text: Github
+          link: https://github.com/lihaicheng-cn
 ---
