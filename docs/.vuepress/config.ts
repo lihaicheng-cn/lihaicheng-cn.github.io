@@ -23,6 +23,7 @@ export default defineUserConfig({
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }],
     // Google Search Console
     ['meta', {name: 'google-site-verification', content: 'K2Rg5LYJgidwrrm-bfb68PUC43sSgAgiUVwZHGvl1YE'}],
+    ['meta', {name: 'msvalidate.01', content: '3DB9AA41BBF42984E855395226C0273B'}],
   ],
 
   bundler: viteBundler(),
