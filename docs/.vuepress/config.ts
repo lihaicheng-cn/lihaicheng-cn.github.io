@@ -21,6 +21,8 @@ export default defineUserConfig({
   head: [
     // 配置站点图标
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }],
+    // Google Search Console
+    ['meta', {name: 'google-site-verification', content: 'K2Rg5LYJgidwrrm-bfb68PUC43sSgAgiUVwZHGvl1YE'}],
   ],
 
   bundler: viteBundler(),
