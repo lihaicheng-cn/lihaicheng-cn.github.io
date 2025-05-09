@@ -24,4 +24,9 @@ list:
     link: https://github.com/pengzhanbo
     avatar: https://github.com/pengzhanbo.png
     desc: 即使慢，驰而不息，纵会落后，纵会失败，但必须能够到达他所向的目标。
+  - 
+    name: 简中仙
+    link: https://www.gaoyufu.cn/
+    avatar: https://www.gaoyufu.cn/upload/cd53b740-aab3-4dfa-834a-a26ba3148663.png
+    desc: 好好活就是有意义的事，有意义的事就是好好活。
 ---
