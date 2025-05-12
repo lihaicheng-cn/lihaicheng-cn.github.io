@@ -1,0 +1,16 @@
+.vp-doc h2:first-of-type {
+    border-top: 1px solid var(--vp-c-divider);
+    margin: 48px 0 16px;
+}
+
+.vp-doc > div > h2:first-child {
+    border-top: none;
+    margin: 24px 0 16px;
+    padding-top: 0;
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+    .vp-doc div[class*="language-"], .vp-block {
+        margin: 16px -16px;
+    }
+}
