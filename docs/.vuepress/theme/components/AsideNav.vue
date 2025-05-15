@@ -1,40 +1,36 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { VPLink } from 'vuepress-theme-plume/client'
-import { useRouteLocale } from 'vuepress/client'
+import { useRouteLocale, usePageFrontmatter } from 'vuepress/client'
 
 interface Locale {
-  star: string
-  issue: string
   sponsor: string
+  comment: string
 }
 
 const locales: Record<string, Locale> = {
-  '/': { star: '在 GitHub 上 Star', issue: '遇到问题？', sponsor: '喝杯奶茶' },
-  '/en/': { star: 'Star on GitHub', issue: 'Create Issues', sponsor: 'Buy me a Bubble Tea' },
+  '/': { sponsor: '喝杯咖啡', comment: '留言评论' },
+  '/en/': { sponsor: 'Buy me a coffee', comment: 'Go to comment' },
 }
 
 const lang = useRouteLocale()
 const locale = computed(() => locales[lang.value])
+const frontmatter = usePageFrontmatter<{ comments?: boolean }>()
+const showComments = computed(() => frontmatter.value.comments !== false)
 </script>
 
 <template>
   <div class="aside-nav-wrapper">
-    <VPLink class="link" no-icon href="https://github.com/pengzhanbo/vuepress-theme-plume">
-      <span class="vpi-github-star" />
-      <span class="link-text">{{ locale.star }}</span>
-      <span class="vpi-arrow-right" />
-    </VPLink>
-    <VPLink class="link" no-icon href="https://github.com/pengzhanbo/vuepress-theme-plume/issues/new/choose">
-      <span class="vpi-github-issue" />
-      <span class="link-text">{{ locale.issue }}</span>
-      <span class="vpi-arrow-right" />
-    </VPLink>
     <VPLink class="link" href="/sponsor/">
-      <span class="vpi-bubble-tea" />
+      <span class="vpi-coffee-half-empty-twotone-loop" />
       <span class="link-text">{{ locale.sponsor }}</span>
       <span class="vpi-arrow-right" />
     </VPLink>
+    <a v-if="showComments" class="vp-link no-icon link" href="#comment">
+      <span class="vpi-chat-round-dots" />
+      <span class="link-text">{{ locale.comment }}</span>
+      <span class="vpi-arrow-down" />
+    </a>
   </div>
 </template>
 
@@ -65,15 +61,11 @@ const locale = computed(() => locales[lang.value])
   font-size: 12px;
 }
 
-.vpi-github-star {
-  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m12 1.5l3.1 6.3l6.9 1l-5 4.8l1.2 6.9l-6.2-3.2l-6.2 3.2L7 13.6L2 8.8l6.9-1z'/%3E%3C/svg%3E");
+.vpi-coffee-half-empty-twotone-loop {
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' fill-opacity='0.3' d='M17 14v4c0 1.66 -1.34 3 -3 3h-6c-1.66 0 -3 -1.34 -3 -3v-4Z'/%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M17 9v9c0 1.66 -1.34 3 -3 3h-6c-1.66 0 -3 -1.34 -3 -3v-9Z'/%3E%3Cpath d='M17 9h3c0.55 0 1 0.45 1 1v3c0 0.55 -0.45 1 -1 1h-3'/%3E%3Cmask id='lineMdCoffeeHalfEmptyTwotoneLoop0'%3E%3Cpath stroke='%23fff' d='M8 0c0 2-2 2-2 4s2 2 2 4-2 2-2 4 2 2 2 4M12 0c0 2-2 2-2 4s2 2 2 4-2 2-2 4 2 2 2 4M16 0c0 2-2 2-2 4s2 2 2 4-2 2-2 4 2 2 2 4'/%3E%3C/mask%3E%3Crect width='24' height='5' y='2' fill='%23000' mask='url(%23lineMdCoffeeHalfEmptyTwotoneLoop0)'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-.vpi-github-issue {
-  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M8 9.5a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3'/%3E%3Cpath fill='%23000' d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M1.5 8a6.5 6.5 0 1 0 13 0a6.5 6.5 0 0 0-13 0'/%3E%3C/svg%3E");
-}
-
-.vpi-bubble-tea {
-  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m17.95 9l-1.478 8.69c-.25 1.463-.374 2.195-.936 2.631c-1.2.931-6.039.88-7.172 0c-.562-.436-.687-1.168-.936-2.632L5.95 9M6 9l.514-1.286a5.908 5.908 0 0 1 10.972 0L18 9M5 9h14m-7 0l4-7m-5.99 12h.01m1 4h.01m1.99-2h.01'/%3E%3C/svg%3E");
+.vpi-chat-round-dots {
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M5 15.5c1 1 2.5 2 4 2.5c-2 2 -5 3 -7 3c2 -2 3 -3.5 3 -5.5Z'/%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M7 16.82c-2.41 -1.25 -4 -3.39 -4 -5.82c0 -3.87 4.03 -7 9 -7c4.97 0 9 3.13 9 7c0 3.87 -4.03 7 -9 7c-1.85 0 -3.57 -0.43 -5 -1.18Z'/%3E%3Cpath d='M8 11h0.01'/%3E%3Cpath d='M12 11h0.01'/%3E%3Cpath d='M16 11h0.01'/%3E%3C/g%3E%3C/svg%3E");
 }
 </style>
