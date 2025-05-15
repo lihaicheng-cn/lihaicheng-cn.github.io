@@ -5,6 +5,9 @@ import { defineClientConfig } from 'vuepress/client'
 // import Swiper from 'vuepress-theme-plume/features/Swiper.vue'
 
 // import CustomComponent from './theme/components/Custom.vue'
+import { h } from 'vue'
+import { Layout } from 'vuepress-theme-plume/client'
+import AsideNav from './theme/components/AsideNav.vue'
 
 // import './theme/styles/custom.css'
 import './theme/styles/index.css'
@@ -19,5 +22,10 @@ export default defineClientConfig({
 
     // your custom components
     // app.component('CustomComponent', CustomComponent)
+  },
+  layouts: {
+    Layout: () => h(Layout, null, {
+      'aside-outline-after': () => h(AsideNav),
+    }),
   },
 })
