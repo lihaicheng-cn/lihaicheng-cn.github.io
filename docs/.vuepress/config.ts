@@ -24,6 +24,8 @@ export default defineUserConfig({
     // Google Search Console
     ['meta', {name: 'google-site-verification', content: 'K2Rg5LYJgidwrrm-bfb68PUC43sSgAgiUVwZHGvl1YE'}],
     ['meta', {name: 'msvalidate.01', content: '3DB9AA41BBF42984E855395226C0273B'}],
+    // Hide VP Doc Meta
+    ['script', { src: '/assets/hide-vp-doc-meta.js' }],
   ],
 
   bundler: viteBundler(),
