@@ -1,5 +1,5 @@
 ---
-title: 如何在 Ubuntu 中安全缩小根分区（使用 initramfs）
+title: 在 Ubuntu 中安全的缩小根分区（使用 initramfs）
 createTime: 2025/05/09 17:40:54
 excerpt: 利用 Ubuntu/Debian 的 initramfs 引导机制，在系统启动阶段、根分区挂载之前执行 `e2fsck` 和 `resize2fs`，实现根分区的安全缩容操作。
 permalink: /article/linux/resize-ext4-root-initramfs/
