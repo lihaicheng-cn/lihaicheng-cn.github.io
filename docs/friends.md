@@ -30,3 +30,19 @@ list:
     avatar: https://www.gaoyufu.cn/upload/cd53b740-aab3-4dfa-834a-a26ba3148663.png
     desc: 好好活就是有意义的事，有意义的事就是好好活。
 ---
+
+
+## 友情链接格式
+
+::: info
+
+- name：白羊
+- link：https://www.lihaicheng.com
+- avatar：https://github.com/lihaicheng-cn.png
+- desc：永远年轻，永远热泪盈眶！
+- location（可选）：北京，中国
+- organization（可选）：VuePress
+- socials（可选）：Github、Instagram、X、YouTube ...
+:::
+
+需要交换友情链接的朋友，==请在下方评论哦！==
