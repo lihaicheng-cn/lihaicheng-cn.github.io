@@ -14,3 +14,10 @@
         margin: 16px -16px;
     }
 }
+
+/* POST: Bark-iPhone cover */
+@media (max-width: 820px) and (orientation: portrait) {
+     .post-cover:has(> img[src="/images/logo/bark.png"]) {
+        display: none;
+    }
+}
