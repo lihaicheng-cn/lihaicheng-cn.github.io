@@ -2,7 +2,7 @@
 friends: true
 pageLayout: friends
 title: 友情链接
-# description: 友情链接描述文本
+description: 海内存知己，天涯若比邻
 permalink: /friends/
 list:
   -
