@@ -1,8 +1,8 @@
 ---
-title: 使用官方二进制包方式安装 MySQL 8.0 服务器
+title: 使用通用二进制文件在 Unix/Linux 上安装 MySQL
 createTime: 2025/06/27 09:43:39
 permalink: /article/mysql-install/8.0/
-excerpt: 本文基于官方 MySQL 8.0 安全部署指南，记录了部署 MySQL 社区版服务器 Linux 通用二进制发行版的步骤。
+excerpt: 本文基于官方 MySQL 8.0 安全部署指南，记录了使用通用二进制文件在 Unix/Linux 上安装 MySQL 社区版的步骤。
 tags:
 - MySQL
 ---
@@ -11,9 +11,9 @@ tags:
 
 ::: tip 说明
 
-本文基于官方 [MySQL 8.0 安全部署指南](https://dev.mysql.com/doc/mysql-secure-deployment-guide/8.0/en/)，记录了部署 MySQL 社区版服务器 Linux 通用二进制发行版的步骤。
+本文基于官方 [MySQL 8.0 安全部署指南](https://dev.mysql.com/doc/mysql-secure-deployment-guide/8.0/en/)，记录了使用通用二进制文件在 Unix/Linux 上安装 MySQL 社区版的步骤。
 
-官方的《MySQL 8.0 Secure Deployment Guide》主要面向企业版，而本文使用的是 **MySQL Community Edition（社区版）** 的 **Linux 通用二进制包** 进行部署。请注意，**社区版可能并不包含企业版的某些安全特性**。
+官方的《MySQL 8.0 Secure Deployment Guide》主要面向企业版（重点介绍 MySQL 的安全功能），而本文使用的是 **MySQL Community Edition（社区版）** 的 **Linux 通用二进制包** 进行部署。请注意，**社区版可能并不包含企业版的某些安全特性**。
 
 :::
 
@@ -85,10 +85,11 @@ apt-get install libncurses5
 使用 `groupadd` 命令添加 `mysql` 组
 
 ```bash
-groupadd -g 27 -o -r mysql
+groupadd -r mysql
+# groupadd -g 27 -o -r mysql
 ```
 
-groupadd `-g 27` 及其 `-o`  选项会分配一个非唯一的组 ID (GID)。`-r` 选项会将该组设置为系统组。
+~~groupadd `-g 27` 及其 `-o`  选项会分配一个非唯一的组 ID (GID)。~~ `-r` 选项会将该组设置为系统组。
 
 
 
@@ -96,12 +97,13 @@ groupadd `-g 27` 及其 `-o`  选项会分配一个非唯一的组 ID (GID)。`-
 
 ```bash
 DATADIR="/usr/local/mysql/data"
-useradd -M -N -g mysql -o -r -d $DATADIR -s /bin/false -c "MySQL Server" -u 27 mysql
+useradd -M -N -g mysql -r -d $DATADIR -s /bin/false -c "MySQL Server" mysql
+# useradd -M -N -g mysql -o -r -d $DATADIR -s /bin/false -c "MySQL Server" -u 27 mysql
 ```
 
 - `-M` 选项可防止创建用户主目录。
 - `-N` 选项表示将用户添加到该 `-g` 选项指定的组中。
-- `-o` 和 选项`-u 27`分配非唯一的用户 ID (UID)。
+- ~~`-o` 和 选项`-u 27`分配非唯一的用户 ID (UID)。~~
 - `-r` 和 `-s /bin/false` 选项会创建一个没有服务器主机登录权限的用户。mysql 用户仅用于所有权目的，而非登录目的。
 - `-d` 选项指定用户登录目录，该目录设置为预期的 MySQL 数据目录路径。
 - `-c` 选项指定描述帐户的注释。
@@ -110,7 +112,7 @@ useradd -M -N -g mysql -o -r -d $DATADIR -s /bin/false -c "MySQL Server" -u 27 m
 
 ### 解压二进制发行版
 
-```
+```bash
 # VERSION_OS="8.0.39-linux-glibc2.28-x86_64"
 tar xvf mysql-$VERSION_OS.tar.xz -C /usr/local/
 
@@ -192,7 +194,7 @@ chown mysql:mysql $DATADIR
 
 输出包含 root@localhost 帐户的初始随机密码。稍后重置 root@localhost 密码时需要此密码。
 
-```
+```text
 2018-05-02T17:47:49.806563Z 0 [System] [MY-013169] [Server] 
 /usr/local/mysql-commercial-8.0.11-linux-glibc2.12-x86_64/bin/mysqld (mysqld 8.0.11-commercial) 
 initializing of server in progress as process 16039
@@ -300,8 +302,8 @@ VERSION_OS="8.0.39-linux-glibc2.28-x86_64"
 wget https://downloads.mysql.com/archives/get/p/23/file/mysql-$VERSION_OS.tar.xz
 
 DATADIR="/usr/local/mysql/data"
-groupadd -g 27 -o -r mysql
-useradd -M -N -g mysql -o -r -d $DATADIR -s /bin/false -c "MySQL Server" -u 27 mysql
+groupadd -r mysql
+useradd -M -N -g mysql -r -d $DATADIR -s /bin/false -c "MySQL Server" mysql
 
 # mkdir -p /usr/local/mysql
 # tar xvf mysql-$VERSION_OS.tar.xz --strip-components=1 -C /usr/local/mysql
