@@ -12,7 +12,7 @@ export default defineThemeConfig({
 
   social: [
     { icon: 'github', link: 'https://github.com/lihaicheng-cn' },
-    { icon: 'twitter', link: 'https://twitter.com/lihaicheng-cn' },
+    { icon: 'twitter', link: 'https://twitter.com/lihaicheng_cn' },
   ],
   navbarSocialInclude: ['github'], // 允许显示在导航栏的 social 社交链接
   // aside: true, // 页内侧边栏， 默认显示在右侧
