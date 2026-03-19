@@ -10,8 +10,11 @@
 }
 
 @media (max-width: 767px) and (orientation: portrait) {
-    .vp-doc div[class*="language-"], .vp-block {
-        margin: 16px -16px;
+    .vp-block,
+    .vp-doc .hint-container,
+    .vp-doc div[class*="language-"],
+    .vp-tabs {
+        margin: 16px 0px;
     }
 }
 
