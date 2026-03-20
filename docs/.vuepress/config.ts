@@ -33,7 +33,8 @@ export default defineUserConfig({
     // 配置站点图标
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }],
     // Google Search Console
-    ['meta', {name: 'google-site-verification', content: 'K2Rg5LYJgidwrrm-bfb68PUC43sSgAgiUVwZHGvl1YE'}],
+    ['meta', {name: 'google-site-verification', content: 'a_kBeq_-6v-I3y3n266d3h56k-J_nU_BZtcLgyL7e5U'}],
+    // Bing Webmaster Tools
     ['meta', {name: 'msvalidate.01', content: '3DB9AA41BBF42984E855395226C0273B'}],
     // Hide VP Doc Meta
     ['script', { src: '/assets/hide-vp-doc-meta.js' }],
