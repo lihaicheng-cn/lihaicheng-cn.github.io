@@ -2,7 +2,6 @@
 title: 请我喝一杯咖啡
 createTime: 0000/00/00 00:00:00
 permalink: /sponsor/
-draft: true
 aside: false
 readingTime: false
 contributors: false

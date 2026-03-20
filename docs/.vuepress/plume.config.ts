@@ -1,9 +1,21 @@
+/**
+ * 查看以下文档了解主题配置
+ * - @see https://theme-plume.vuejs.press/config/intro/ 配置说明
+ * - @see https://theme-plume.vuejs.press/config/theme/ 主题配置项
+ *
+ * 请注意，对此文件的修改不会重启 vuepress 服务，而是通过热更新的方式生效
+ * 但同时部分配置项不支持热更新，请查看文档说明
+ * 对于不支持热更新的配置项，请在 `.vuepress/config.ts` 文件中配置
+ *
+ * 特别的，请不要在两个配置文件中重复配置相同的项，当前文件的配置项会覆盖 `.vuepress/config.ts` 文件中的配置
+ */
+
 import { defineThemeConfig } from 'vuepress-theme-plume'
+import { enCollections, zhCollections } from './collections'
 import { enNavbar, zhNavbar } from './navbar'
-import { enNotes, zhNotes } from './notes'
 
 /**
- * @see https://theme-plume.vuejs.press/config/basic/
+ * @see https://theme-plume.vuejs.press/config/theme/
  */
 export default defineThemeConfig({
   logo: '/plume.png',
@@ -34,7 +46,7 @@ export default defineThemeConfig({
   //   copyright: '',
   // },
 
-  /* 过渡动画 @see https://theme-plume.vuejs.press/config/basic/#transition */
+  /* 过渡动画 @see https://theme-plume.vuejs.press/config/theme/#transition */
   // transition: {
   //   page: true,        // 启用 页面间跳转过渡动画
   //   postList: true,    // 启用 博客文章列表过渡动画
@@ -44,7 +56,7 @@ export default defineThemeConfig({
   locales: {
     '/': {
       /**
-       * @see https://theme-plume.vuejs.press/config/basic/#profile
+       * @see https://theme-plume.vuejs.press/config/theme/#profile
        */
       profile: {
         avatar: '/avatar.png',
@@ -56,7 +68,7 @@ export default defineThemeConfig({
       },
 
       navbar: zhNavbar,
-      notes: zhNotes,
+      collections: zhCollections,
 
       /**
        * 公告板
@@ -71,7 +83,7 @@ export default defineThemeConfig({
     },
     '/en/': {
       /**
-       * @see https://theme-plume.vuejs.press/config/basic/#profile
+       * @see https://theme-plume.vuejs.press/config/theme/#profile
        */
       profile: {
         avatar: '/avatar.png',
@@ -83,7 +95,7 @@ export default defineThemeConfig({
       },
 
       navbar: enNavbar,
-      notes: enNotes,
+      collections: enCollections,
 
       /**
        * 公告板

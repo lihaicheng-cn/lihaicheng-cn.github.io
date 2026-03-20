@@ -36,6 +36,8 @@ jobs:
       # 运行构建脚本
       # Run the build script
       - name: Build VuePress site
+        env:
+          NODE_OPTIONS: --max_old_space_size=8192
         run: npm run docs:build
 
 
