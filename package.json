@@ -3,6 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Site Description",
+  "packageManager": "pnpm@10.32.1",
   "author": "lihaicheng <lihaicheng.cn@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -10,7 +11,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:dev-clean": "vuepress dev docs --clean-cache --clean-temp",
     "docs:preview": "http-server docs/.vuepress/dist",
-    "vp-update": "npx vp-update"
+    "vp-update": "pnpm dlx vp-update"
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.26",
@@ -19,6 +20,12 @@
     "vue": "^3.5.26",
     "vuepress": "2.0.0-rc.26",
     "vuepress-theme-plume": "1.0.0-rc.192"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild"
+    ]
   },
   "engines": {
     "node": "^20.19.0 || >=22.0.0"

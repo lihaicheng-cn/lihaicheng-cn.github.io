@@ -5,20 +5,20 @@ The Site is generated using [vuepress](https://vuepress.vuejs.org/) and [vuepres
 ## Install
 
 ```sh
-npm i
+pnpm i
 ```
 
 ## Usage
 
 ```sh
 # start dev server
-npm run docs:dev
+pnpm docs:dev
 # build for production
-npm run docs:build
+pnpm docs:build
 # preview production build in local
-npm run docs:preview
+pnpm docs:preview
 # update vuepress and theme
-npm run vp-update
+pnpm vp-update
 ```
 
 ## Deploy to GitHub Pages
