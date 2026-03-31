@@ -24,3 +24,8 @@
         display: none;
     }
 }
+
+/* Fix Waline reply paragraph spacing affected by normalize.css */
+[data-waline] p {
+    margin: 1em 0 !important;
+}
