@@ -43,6 +43,8 @@ export default defineUserConfig({
   bundler: viteBundler(),
   shouldPrefetch: false, // 站点较大，页面数量较多时，不建议启用
 
+  pagePatterns: ['**/*.md', '!.vuepress', '!node_modules', '!**/*.snippet.md'],
+
   theme: plumeTheme({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
     hostname: 'https://www.lihaicheng.com',
@@ -144,7 +146,7 @@ export default defineUserConfig({
     //     mark: true,       // 启用图片标记
     //     size: true,       // 启用图片大小
     //   },
-    //   include: true,      // 在 Markdown 文件中导入其他 markdown 文件内容
+      include: {},      // 在 Markdown 文件中导入其他 markdown 文件内容
     //   imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
     },
 
