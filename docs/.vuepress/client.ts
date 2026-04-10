@@ -1,4 +1,5 @@
 import { defineClientConfig } from 'vuepress/client'
+import { defineMermaidConfig } from '@vuepress/plugin-markdown-chart/client'
 // import RepoCard from 'vuepress-theme-plume/features/RepoCard.vue'
 // import NpmBadge from 'vuepress-theme-plume/features/NpmBadge.vue'
 // import NpmBadgeGroup from 'vuepress-theme-plume/features/NpmBadgeGroup.vue'
@@ -11,6 +12,13 @@ import AsideNav from './theme/components/AsideNav.vue'
 
 // import './theme/styles/custom.css'
 import './theme/styles/index.css'
+
+defineMermaidConfig({
+  class: {
+    hideEmptyMembersBox: true,
+  },
+  look: 'handDrawn',
+})
 
 export default defineClientConfig({
   enhance({ app }) {

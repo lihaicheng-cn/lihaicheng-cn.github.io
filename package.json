@@ -33,6 +33,7 @@
   "dependencies": {
     "@waline/client": "^3.13.0",
     "echarts": "^6.0.0",
+    "mermaid": "^11.14.0",
     "swiper": "^12.1.2"
   }
 }
