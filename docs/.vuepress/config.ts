@@ -31,7 +31,7 @@ export default defineUserConfig({
 
   head: [
     // 配置站点图标
-    ['link', { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     // Google Search Console
     ['meta', {name: 'google-site-verification', content: 'a_kBeq_-6v-I3y3n266d3h56k-J_nU_BZtcLgyL7e5U'}],
     // Bing Webmaster Tools

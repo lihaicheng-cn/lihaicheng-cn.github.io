@@ -18,7 +18,7 @@ import { enNavbar, zhNavbar } from './navbar'
  * @see https://theme-plume.vuejs.press/config/theme/
  */
 export default defineThemeConfig({
-  logo: '/plume.png',
+  logo: '/favicon.svg',
 
   appearance: true,  // 配置 深色模式
 
