@@ -12,6 +12,7 @@ import AsideNav from './theme/components/AsideNav.vue'
 
 // import './theme/styles/custom.css'
 import './theme/styles/index.css'
+// import './theme/styles/vars.css'
 
 defineMermaidConfig({
   class: {
