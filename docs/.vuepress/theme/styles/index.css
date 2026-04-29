@@ -29,3 +29,14 @@
 [data-waline] p {
     margin: 1em 0 !important;
 }
+
+/* Set GitHub icon color in light theme */
+html[data-theme="light"] .vp-social-link[aria-label="github"] .vp-icon {
+    color: #3c3c44;
+}
+
+/* Define consistent size for social media icons */
+.vp-social-link .vp-icon {
+    width: 20px;
+    height: 20px;
+}
