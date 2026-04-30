@@ -16,6 +16,10 @@ config:
           text: Quick Start
           link: /en/blog/
         -
+          theme: brand
+          text: About Me
+          link: /about-me/
+        -
           theme: alt
           text: Github
           link: https://github.com/lihaicheng-cn

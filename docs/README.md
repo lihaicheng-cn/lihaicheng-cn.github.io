@@ -16,6 +16,10 @@ config:
           text: 快速开始 →
           link: /blog/
         -
+          theme: brand
+          text: 关于我
+          link: /about-me/
+        -
           theme: alt
           text: Github
           link: https://github.com/lihaicheng-cn
